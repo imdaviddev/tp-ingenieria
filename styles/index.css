@@ -75,6 +75,35 @@ body {
     font-weight: bold;
 }
 
+
+/* Estilos para el formulario de inicio de sesión */
+.login-form {
+    margin-left: auto; /* Para alinear el formulario a la derecha del encabezado */
+}
+
+.login-form form {
+    display: flex;
+    align-items: center;
+}
+
+.login-form input[type="text"],
+.login-form input[type="password"] {
+    margin-right: 10px;
+    padding: 5px;
+}
+
+.login-form button {
+    background-color: #000000;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+}
+
+.login-form button:hover {
+    background-color: gray;
+}
+
 /** Hero Section **/
 
 main {
