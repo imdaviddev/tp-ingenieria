@@ -6,8 +6,9 @@
     <!-- Meta Data -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Titulo de la pagina -->
     <title>Guia Turistica</title>
-    <script src="index.js"></script>
 
     <!-- Favicon -->
     <link rel="icon" href="assets/icons/icon-estrella.png" type="image/x-icon">
@@ -27,10 +28,60 @@
     <div id="app" style="display: none;">
     </div>
 
+        <!-- Muestra en pantalla el login -->
+    <div class="login-popup" id="login-popup">
+        <!-- Btn Cerrar-->
+        <button class="cerrar-login-btn" id="cerrar-login-btn">
+            X
+        </button>
+
+        <!-- Login Form -->
+        <div class="login-form">
+
+          <form id="login-form">
+                <h1>Iniciar Sesion</h1>
+          <div class="contenedor">
+            <div class="login-iniciar">
+                <img src="assets/icons/correo-icon.png" class="login-icon" alt="">
+                <input
+                  type="text"
+                  id="usuario"
+                  name="usuario"
+                  placeholder="ingresa usuario"
+                  required
+                />
+              </div>
+    
+              <div class="login-contrasenia">
+                <img src="assets/icons/contrasenia-icon.png" class="login-icon" alt="">
+                <input
+                  type="password"
+                  id="password"
+                  name="password"
+                  placeholder="ingresa contraseña"
+                  required
+                />
+              </div>
+          </div>
+
+          <div class="opciones-login">
+            <p class="registrarme">
+                Registrarme
+            </p>
+            <p class="olvido-contrasenia">
+                Olvide mi clave
+            </p>
+          </div>
+
+          <button type="submit">Iniciar Sesión</button>
+            </form>
+        </div>
+    </div>
+
     <!-- Navbar -->
     <header class="navbar-top">
         <nav>
-            <div class="logo">
+            <div id="logo">
                 <img src="assets/icons/icon-estrella.png" alt="">
             </div>
             <ul>
@@ -39,20 +90,21 @@
                 <li>Productos</li>
                 <li>Ayuda al turista</li>
             </ul>
-            <div class="login-form">
-                <form id="login-form">
-                    <input type="text" placeholder="Usuario">
-                    <input type="password" placeholder="Contraseña">
-                    <button type="submit">Iniciar sesión</button>
-                </form>
-            </div>
+
+            <button class="iniciar-sesion-btn" id="iniciar-sesion-btn">
+                Iniciar Sesion
+            </button>
+
+            <button id="cerrar-sesion-btn">
+                Cerrar Sesion
+            </button>
+
         </nav>
     </header>
     
 
     <!-- Seccion Principal -->
     <main>
-
         <!-- Hero -->
         <div class="hero">
             <div class="video__container">
@@ -76,7 +128,7 @@
 
 
     <!-- JS -->
-    <script></script>
+    <script src="index.js"></script>
 
     <!-- JS MAPA -->
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
@@ -92,6 +144,9 @@
         marker.bindPopup("<b>Hello world!</b><br>I am a popup.");
 
     </script>
+
+    <!-- JS DISEÑO -->
+    <script src="js/disenio.js"></script>
 
 </body>
 
