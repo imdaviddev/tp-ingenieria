@@ -25,7 +25,7 @@ function loginForm() {
         addListItem("Publicar Aviso");
         addListItem("Historial Avisos");
         isLoggedIn = true;
-        /** Luego de iniciar sesion hay que quitar el formulario */
+        /** Luego de iniciar sesion hay que quitar el formulario y deshabilitar el inicio de sesion */
       }
       /**
              * Solo pedian que este el comerciante

@@ -138,19 +138,19 @@ body {
 }
 
 .login-form {
-    background-color: rgba(255, 255, 255, 0.795);
     border-radius: 0.6rem;
-    height: 400px;
-    width: 400px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+    background-color: rgba(255,255,255,0.8);
+    padding: 1.5rem;
+    width: 30rem;
+    height: 22rem;
+    text-align: center;
 }
 
 .login-form form {
     display: flex;
     flex-direction: column;
+    width: 100%;
+    gap: 0.5rem;
 }
 
 .contenedor{
@@ -171,7 +171,7 @@ body {
   }
 
   
-  input[type="email"],
+  input[type="text"],
   input[type="password"] {
     width: 100%;
     padding: 10px;
@@ -180,13 +180,13 @@ body {
     border-radius: 4px;
   }
 
-  input[type="email"]:focus,
+  input[type="text"]:focus,
   input[type="password"]:focus {
     outline: none;
   } 
   
   button[type="submit"] {
-    background-color: #2d065d;
+    background-color: #000000b2;
     color: #fff;
     border: none;
     border-radius: 1.5rem;
@@ -198,17 +198,17 @@ body {
   }
   
   button[type="submit"]:hover {
-    background-color: #1f063f;
+    background-color: #000000;
   }
 
   .opciones-login p {
     cursor: pointer;
-
+    color:  #000000b2;
     font-weight: 580;
   }
 
   .registrarme:hover, .olvido-contrasenia:hover {
-    color: #460b8f;
+    color: #000000;
   }
 
   .login-icon{
