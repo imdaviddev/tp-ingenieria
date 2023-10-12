@@ -2,6 +2,9 @@
 document.addEventListener("DOMContentLoaded", ready);
 function ready() {
   loginForm();
+
+  const cerrarSesionBtn = document.getElementById("cerrar-sesion-btn");
+  cerrarSesionBtn.addEventListener("click", cerrarSesion);
 }
 
 /** Funcion que controla el manejo del login */
@@ -25,21 +28,8 @@ function loginForm() {
         addListItem("Publicar Aviso");
         addListItem("Historial Avisos");
         isLoggedIn = true;
-        /** Luego de iniciar sesion hay que quitar el formulario y deshabilitar el inicio de sesion */
+        deshabilitarInicioSesion();
       }
-      /**
-             * Solo pedian que este el comerciante
-            if (usernameInput === "supervisor") {
-                addListItem("Alta Comerciantes");
-                addListItem("Baja Comerciante");
-                addListItem("Alta Personal");
-            } else if (usernameInput === "comerciante") {
-                addListItem("Publicar Aviso");
-                addListItem("Historial Avisos");
-            } else if (usernameInput === "personal") {
-                addListItem("Alta Comerciantes");
-            }
-            **/
     }
   });
 
@@ -47,7 +37,44 @@ function loginForm() {
   function addListItem(text) {
     const newItem = document.createElement("li");
     newItem.textContent = text;
+    newItem.classList = "opcion-comerciante";
     userList.appendChild(newItem);
   }
 }
 
+function deshabilitarInicioSesion(){
+    const loginPopup = document.getElementById("login-popup");
+    loginPopup.style.display = "none";
+
+    const btnInicioSesion = document.getElementById("iniciar-sesion-btn");
+    btnInicioSesion.style.display = "none";
+
+    const btnCerrarSesion = document.getElementById("cerrar-sesion-btn");
+    btnCerrarSesion.style.display = "block";
+}
+
+function habilitarInicioSesion(){
+    const btnInicioSesion = document.getElementById("iniciar-sesion-btn");
+    btnInicioSesion.style.display = "block";
+
+    const btnCerrarSesion = document.getElementById("cerrar-sesion-btn");
+    btnCerrarSesion.style.display = "none";
+
+    recargarPagina();
+}
+
+function cerrarSesion(){
+    isLoggedIn = false;
+    const userList = document.querySelector(".navbar-top nav ul");
+    const comercianteItems = userList.querySelectorAll("li.opcion-comerciante");
+    comercianteItems.forEach(item => {
+      item.remove();
+    });
+    
+    habilitarInicioSesion();
+}
+
+function recargarPagina() {
+    location.href = location.href;
+  }
+  

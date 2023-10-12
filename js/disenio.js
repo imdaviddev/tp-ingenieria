@@ -4,7 +4,6 @@ function ready() {
   const loginPopup = document.getElementById("login-popup");
   const iniciarSesionBtn = document.getElementById("iniciar-sesion-btn");
 
-
   cerrarLoginBtn.addEventListener("click", () => {
         loginPopup.style.display = "none";
   });
@@ -13,18 +12,25 @@ function ready() {
         loginPopup.style.display = "flex";
   });
 }
+
 ajustarNav();
 
 /** Funciones de Disenio */
 function ajustarNav() {
     // Obtener boton iniciar sesion
-    const elemento1 = document.getElementById("iniciar-sesion-btn");
+    let btn;
+
+    if (document.getElementById("iniciar-sesion-btn").style.display != "none"){
+        btn = document.getElementById("iniciar-sesion-btn");
+    }else{
+        btn = document.getElementById("cerrar-sesion-btn");
+    }
   
     // Obtener su ancho y alto
-    const anchoElemento1 = elemento1.offsetWidth;
+    const anchoBtn = btn.offsetWidth;
   
     // Aplicar las dimensiones al elemento 2
-    const elemento2 = document.getElementById("logo");
-    elemento2.style.width = anchoElemento1 + "px";
+    const logo = document.getElementById("logo");
+    logo.style.width = anchoBtn + "px";
   }
   
