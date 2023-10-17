@@ -1,12 +1,20 @@
-    /* Estilos para el video de fondo */
-    video {
-        position: fixed;
-        top: 0;
-        left: 0;
-        min-width: 100%;
-        min-height: 100%;
-        z-index: -1;
-    }
+video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -1;
+}
+
+/* Estilos para el contenido del formulario */
+.content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    padding: 20px;
+}
+
 /* Estilos generales */
 body {
     font-family: Arial, sans-serif;
@@ -28,12 +36,14 @@ form {
     border: 1px solid #ccc;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
 }
 
 label {
     display: block;
     margin-bottom: 5px;
     color: #333;
+    text-align: left; /* Alinea etiquetas a la izquierda */
 }
 
 select {
@@ -71,4 +81,26 @@ button.submit-button:hover {
     form {
         max-width: 600px;
     }
+}
+
+/* Estilos adicionales para Publicar Aviso */
+#nombre, #descripcion, #precio {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#foto {
+    width: 100%;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#image-preview {
+    max-width: 100%;
+    max-height: 300px;
+    margin: 10px 0;
 }
