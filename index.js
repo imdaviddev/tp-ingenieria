@@ -5,6 +5,11 @@ function ready() {
 
   const cerrarSesionBtn = document.getElementById("cerrar-sesion-btn");
   cerrarSesionBtn.addEventListener("click", cerrarSesion);
+
+  const ayudaAlTuristaBtn = document.getElementById("ayuda-turistica-btn");
+  ayudaAlTuristaBtn.addEventListener("click", function (){
+    window.location = "ayuda-turistica.html";
+  });
 }
 
 /** Funcion que controla el manejo del login */
