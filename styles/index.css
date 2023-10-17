@@ -237,7 +237,7 @@ body {
   }
 /** Hero Section **/
 
-main {
+main, .hero {
     position:relative; /* Para que funcione el absolute de el video */
     min-height: 100vh;
 
