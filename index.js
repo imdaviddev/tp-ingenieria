@@ -1,23 +1,35 @@
 /** Espero que el html cargue por completo para ejecutar la funcion ready */
-document.addEventListener("DOMContentLoaded", ready);
-function ready() {
+document.addEventListener("DOMContentLoaded", function(){
   loginForm();
 
+  // -------- LINKS DE NAVEGACION -----------------
+  const links = {
+    index: document.getElementById("inicio-btn"),
+    atracciones: document.getElementById("atracciones-btn"),
+    productos: document.getElementById("productos-btn"),
+    "ayuda-turistica": document.getElementById("ayuda-turistica-btn"),
+  }
+  for(let key in links){
+    console.log(key)
+    links[key].addEventListener("click", function(){
+      window.location.href = key + ".html";
+    })
+  }
+  // -------------------------------------------------
+
+  // ------- CERRAR SESION ---------------------------
   const cerrarSesionBtn = document.getElementById("cerrar-sesion-btn");
   cerrarSesionBtn.addEventListener("click", cerrarSesion);
+  // -------------------------------------------------
 
-  const ayudaAlTuristaBtn = document.getElementById("ayuda-turistica-btn");
-  ayudaAlTuristaBtn.addEventListener("click", function (){
-    window.location = "ayuda-turistica.html";
-  });
-}
+});
 
 /** Funcion que controla el manejo del login */
 function loginForm() {
   const loginForm = document.getElementById("login-form");
   const userList = document.querySelector(".navbar-top nav ul");
   let isLoggedIn = false; // Bandera de logueo
-  loginForm.addEventListener("submit", function (event) {
+  loginForm?.addEventListener("submit", function (event) {
     event.preventDefault();
 
     const usernameInput = loginForm.querySelector('input[type="text"]').value;
@@ -30,8 +42,7 @@ function loginForm() {
 
     if (!isLoggedIn && passwordInput === "1234") {
       if (usernameInput === "comerciante") {
-        addListItem("Publicar Aviso");
-        addListItem("Historial Avisos");
+        addListItem("Publicar Aviso", "publicar-aviso");
         isLoggedIn = true;
         deshabilitarInicioSesion();
       }
@@ -39,10 +50,14 @@ function loginForm() {
   });
 
   // Agrega un elemento a la lista
-  function addListItem(text) {
+  function addListItem(text, id_item) {
     const newItem = document.createElement("li");
     newItem.textContent = text;
     newItem.classList = "opcion-comerciante";
+    newItem.id = id_item;
+    newItem.addEventListener("click", function(){
+      window.location.href = id_item + ".html";
+    })
     userList.appendChild(newItem);
   }
 }
