@@ -46,9 +46,6 @@ body {
     color: white;
     padding: 1rem;
     min-height: 100px;
-}
-
-.navbar-top:hover {
     background-color: #000000;
 }
 
@@ -73,43 +70,112 @@ body {
 }
 
 /** NavBar Normal **/
-#navbar-normal {
+nav {
     width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-
-    display: none;
 }
 
-#navbar-normal ul {
+nav ul {
     display: flex;
     gap: 3rem;
 }
 
-#navbar-normal ul li {
+nav ul li {
     cursor: pointer;
     transition: all 0.2s ease-in;
     font-weight: normal;
 }
 
-#navbar-normal ul li:hover {
+nav ul li:hover {
     font-weight: bold;
 }
 
-
 /** Navbar Hamburugesa **/
-#navbar-hamburguesa {
-    position: absolute;
-    right: 0;
-    top: 0;
-    width: 400px;
-    height: 100vh;
-
+#navbar-hamburguesa .menu, #navbar-hamburguesa .menu.menu-hamburguesa {
     display: flex;
+    align-items: center;
+    flex-direction: row;
+    gap: 3rem;
+    background-color: #000000;
 }
 
+/** Estilos para controles hamburguesa **/
+#navbar-hamburguesa .controles-navbar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#navbar-hamburguesa .boton-hamburguesa, #navbar-hamburguesa .cerrar-hamburguesa .cerrar {
+    display: none;
+    flex-direction: column;
+    margin: 15px;
+}
+#navbar-hamburguesa .boton-hamburguesa .bar, 
+#navbar-hamburguesa .cerrar-hamburguesa .cerrar .bar {
+    width: 40px;
+    height: 4px;
+    margin: 4px;
+    border-radius: 1px;
+    background-color: white;
+}
+#navbar-hamburguesa .boton-hamburguesa:hover .bar {
+    background-color: #ccc;
+}
+#navbar-hamburguesa .cerrar-hamburguesa .cerrar .bar {
+    width: 30px;
+}
+#navbar-hamburguesa .cerrar-hamburguesa {
+    position: absolute;
+    right: 60px;
+    top: 30px;
+}
+#navbar-hamburguesa .cerrar-hamburguesa .cerrar .bar {
+    position: absolute;
+    transition: transform 0.6s ease-in;
+}
+#navbar-hamburguesa .cerrar-hamburguesa .cerrar .bar:nth-child(1){
+    transform: rotate(45deg);
+}
+#navbar-hamburguesa .cerrar-hamburguesa .cerrar .bar:nth-child(2){
+    transform: rotate(-45deg);
+}
+#navbar-hamburguesa .cerrar-hamburguesa .cerrar:hover .bar{
+    background-color: red;
+}
+#navbar-hamburguesa .cerrar-hamburguesa .cerrar:hover  .bar:nth-child(1){
+    transform: rotate(260deg);
+}
+#navbar-hamburguesa .cerrar-hamburguesa .cerrar:hover  .bar:nth-child(2){
+    transform: rotate(15deg);
+}
 
+#navbar-hamburguesa .menu-hamburguesa{
+    display: none;
+}
+
+@media screen and (max-width: 900px) {
+    #navbar-hamburguesa .menu {
+        display: none;
+    }
+
+
+    #navbar-hamburguesa .boton-hamburguesa, #navbar-hamburguesa .cerrar-hamburguesa .cerrar {
+        display: flex;
+    }
+
+    #navbar-hamburguesa .menu.menu-hamburguesa {    
+        position: absolute;
+        top: 0;
+        right: 0;
+        flex-direction: column;
+        width: 400px;
+        height: 100vh;
+        padding-top: 10rem;
+        display: flex;
+    }
+}
 
 /* ---------- Formulario Inicio Sesion ----------- */
 .cerrar-login-btn {

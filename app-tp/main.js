@@ -1,8 +1,5 @@
 import NavBar from "./components/NavBar.js";
 
-
-
-
 /** Espero que el html cargue por completo para ejecutar la funcion ready */
 document.addEventListener("DOMContentLoaded", function(){
     // CARGAR NAVABAR 
@@ -30,20 +27,23 @@ document.addEventListener("DOMContentLoaded", function(){
     // -------- HAMBURGUESA ---------------------------
     const btnCerrarHamburguesa = document.querySelector(".cerrar");
     const btnAbrirHamburguesa = document.querySelector(".boton-hamburguesa");
-    const menuHamburguesa = document.querySelector(".menu-hamburguesa");
+    const menuHamburguesa = document.querySelector(".menu");
 
     btnAbrirHamburguesa.addEventListener("click", function(){
-        menuHamburguesa.style.display = "flex";  
+        menuHamburguesa.classList.add("menu-hamburguesa");
+        console.log(menuHamburguesa.classList)
     })
 
     btnCerrarHamburguesa.addEventListener("click", function(){
-        menuHamburguesa.style.display = "none";
+        menuHamburguesa.classList.remove("menu-hamburguesa");
+        console.log(menuHamburguesa.classList)
+
     })
 
   });
 
 /** ------ Funcion que controla el manejo del login ----- */
-  function loginForm() {
+    function loginForm() {
 
     // ------------ LOGIN BOTON EVENTOS ----------------------------
     const cerrarLoginBtn = document.getElementById("cerrar-login-btn");
@@ -56,6 +56,7 @@ document.addEventListener("DOMContentLoaded", function(){
   
     iniciarSesionBtn?.addEventListener("click", () =>{
           loginPopup.style.display = "flex";
+          console.log();
     });
     
     // REVISO SI ESTA AUTENTICADO
