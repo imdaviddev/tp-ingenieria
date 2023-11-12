@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="styles/baja-comerciante.css">
+    <title>Baja de Comerciante</title>
+    <link rel="icon" href="assets/icons/icon-estrella.png" type="image/x-icon">
+    
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+    <video src="assets/media/background-video.mp4" type="video/mp4" autoplay loop muted poster playsinline></video>
+    <div class="content">
+        <h2>Baja de Comerciante</h2>
+        <form>
+            <label for="comerciante">Selecciona un Comerciante:</label>
+            <select id="comerciante" name="comerciante">
+                <option value="1">Juan Perez</option>
+                <option value="2">Carlos Garcia</option>
+                <option value="3">Oscar Martinez</option>
+                <option value="4">Diego Gonzalez</option>
+                <option value="5">Maria Lopez</option>
+                <option value="6">Roberto Gomez</option>
+                <option value="7">Juana Ferreyra</option>
+                <option value="8">Pedro Alvarez</option>
+                <option value="9">Luisa Romero</option>
+                <option value="10">Federico Aguero</option>
+            </select><br><br>
+
+            <button type="button" class="submit-button" onclick="confirmarEliminacion()">Eliminar Comerciante</button>
+        </form>
+    </div>
+
+    <script>
+        function confirmarEliminacion() {
+            const seleccionado = document.getElementById('comerciante');
+            const comerciante = seleccionado.options[seleccionado.selectedIndex].text;
+
+            Swal.fire({
+                title: 'Confirmar Baja',
+                text: `¿Estás seguro de que deseas dar de baja a ${comerciante}?`,
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Eliminar',
+                cancelButtonText: 'Cancelar'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    Swal.fire(`${comerciante} eliminado`, '', 'success');
+                }
+            });
+        }
+    </script>
+</body>
+</html>
+
+

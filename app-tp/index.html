@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <!-- Meta Data -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Titulo de la pagina -->
+    <title>Guia Turistica</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="assets/icons/icon-estrella.png" type="image/x-icon">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="styles/index.css">
+
+    <!-- CSS MAPA -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+
+</head>
+
+<body>
+
+    <!-- App -->
+    <div id="app" style="display: none;">
+    </div>
+
+        <!-- Muestra en pantalla el login -->
+    <div class="login-popup" id="login-popup">
+        <!-- Btn Cerrar-->
+        <button class="cerrar-login-btn" id="cerrar-login-btn">
+            X
+        </button>
+
+        <!-- Login Form -->
+        <div class="login-form">
+
+          <form id="login-form">
+                <h1>Iniciar Sesion</h1>
+          <div class="contenedor">
+            <div class="login-iniciar">
+                <img src="assets/icons/correo-icon.png" class="login-icon" alt="">
+                <input
+                  type="text"
+                  id="usuario"
+                  name="usuario"
+                  placeholder="ingresa usuario"
+                  required
+                />
+              </div>
+    
+              <div class="login-contrasenia">
+                <img src="assets/icons/contrasenia-icon.png" class="login-icon" alt="">
+                <input
+                  type="password"
+                  id="password"
+                  name="password"
+                  placeholder="ingresa contraseña"
+                  required
+                />
+              </div>
+          </div>
+
+          <div class="opciones-login">
+            <p class="registrarme">
+                Registrarme
+            </p>
+            <p class="olvido-contrasenia">
+                Olvide mi clave
+            </p>
+          </div>
+
+          <button type="submit">Iniciar Sesión</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Navbar -->
+    <header class="header">
+        <!-- Aca se cargara la navbar -->
+    </header>
+    
+    <!-- Aqui se cargara la app -->
+    <main id = "contenedor__principal">
+    </main>
+
+    <!-- JS MAPA -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+    <!-- JS -->
+    <script src="main.js" type="module"></script>
+
+</body>
+
+</html>
