@@ -103,6 +103,7 @@ body {
     width: 100%;
     height: 85vh; /* o la altura que desees */
     border: 1px solid #ccc; /* o cualquier borde que desees */
+    z-index: 1;
 }
 
 /* Resto de los estilos... */
@@ -197,5 +198,9 @@ body {
         flex: 0 0 auto; /* Añadido para evitar que los productos se redimensionen en pantallas más pequeñas */
         scroll-snap-align: start;
         margin-right: 1rem; /* Espacio entre productos */
+    }
+
+    #map {
+        height: 440px;
     }
 }
