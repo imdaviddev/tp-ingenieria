@@ -94,8 +94,15 @@ body {
     color: #fff;
 }
 
-.contenedor-mapa {
-    /* Agrega estilos según sea necesario */
+
+.contenedor-mapa{
+
+}
+
+#map {
+    width: 100%;
+    height: 85vh; /* o la altura que desees */
+    border: 1px solid #ccc; /* o cualquier borde que desees */
 }
 
 /* Resto de los estilos... */

@@ -162,6 +162,7 @@ nav ul li:hover {
     display: none;
 }
 
+
 @media screen and (max-width: 900px) {
     #navbar-hamburguesa .menu {
         display: none;

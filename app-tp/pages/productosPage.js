@@ -19,11 +19,11 @@ document.addEventListener("DOMContentLoaded", function(){
     galeria.appendChild(crearProductoCard());
 
     // Logica del buscador
+    
 
-
-    // 
-
-
+    // Mapa
+    const contenedorMapa = document.querySelector(".contenedor-mapa");
+    crearMapa(contenedorMapa);
 
 });
 
@@ -47,3 +47,21 @@ export function crearProductoCard(producto){
   
     return productoElement;
   }
+
+// FUNCIONES PARA MANEJAR EL MAPA
+export function crearMapa(contenedor){
+    let mapaElement = document.createElement("div")
+    mapaElement.id = 'map'
+    contenedor.appendChild(mapaElement)
+
+    let puntoPartida = [-31.42414 , -64.49778] 
+    let zoomInicial = 13
+    let map = L.map('map').setView(puntoPartida, zoomInicial);
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    }).addTo(map);
+
+
+    return mapaElement;
+}

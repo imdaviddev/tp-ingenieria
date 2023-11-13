@@ -8,7 +8,7 @@ const NavBar = () => {
             <div id="logo">
                 <img src="assets/icons/icon-estrella.png" alt="">
             </div>
-            <ul class="menu menu-hamburguesa">
+            <ul class="menu">
                 <div class="cerrar-hamburguesa">
                     <div class="cerrar">
                         <span class="bar"></span>
