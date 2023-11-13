@@ -163,28 +163,6 @@ nav ul li:hover {
 }
 
 
-@media screen and (max-width: 900px) {
-    #navbar-hamburguesa .menu {
-        display: none;
-    }
-
-
-    #navbar-hamburguesa .boton-hamburguesa, #navbar-hamburguesa .cerrar-hamburguesa .cerrar {
-        display: flex;
-    }
-
-    #navbar-hamburguesa .menu.menu-hamburguesa {    
-        position: absolute;
-        top: 0;
-        right: 0;
-        flex-direction: column;
-        width: 400px;
-        height: 100vh;
-        padding-top: 10rem;
-        display: flex;
-    }
-}
-
 /* ---------- Formulario Inicio Sesion ----------- */
 .cerrar-login-btn {
     position: absolute;
@@ -305,5 +283,41 @@ button[type="submit"]:hover {
 
     background-color: blue;
 }
+
+
+@media screen and (max-width: 900px) {
+    #navbar-hamburguesa .menu {
+        display: none;
+    }
+
+
+    #navbar-hamburguesa .boton-hamburguesa, #navbar-hamburguesa .cerrar-hamburguesa .cerrar {
+        display: flex;
+    }
+
+    #navbar-hamburguesa .menu.menu-hamburguesa {    
+        position: absolute;
+        top: 0;
+        right: 0;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 400px;
+        height: 100vh;
+        display: flex;
+    }
+}
+
+@media screen and (max-width: 512px) {
+    #navbar-hamburguesa .menu.menu-hamburguesa {    
+        width: 100%;
+    }
+
+    .login-form {
+        width: 20em;
+        height: 20em;
+    }
+}
+
 
 
