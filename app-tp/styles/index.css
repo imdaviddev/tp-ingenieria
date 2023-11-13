@@ -39,7 +39,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     z-index: 2;
@@ -47,6 +47,10 @@ body {
     padding: 1rem;
     min-height: 100px;
     background-color: #000000;
+}
+
+.header {
+    position: sticky;
 }
 
 /** Estilo para los botones de inicio y cierre de sesion */
@@ -130,6 +134,9 @@ nav ul li:hover {
     position: absolute;
     right: 60px;
     top: 30px;
+}
+#navbar-hamburguesa .cerrar-hamburguesa .cerrar {
+    cursor: pointer;
 }
 #navbar-hamburguesa .cerrar-hamburguesa .cerrar .bar {
     position: absolute;

@@ -1,0 +1,194 @@
+body {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    min-height: 100vh; /* Ajustado para ocupar al menos el 100% de la altura de la ventana */
+    overflow-y: hidden ;
+}
+
+#contenedor__principal {
+    display: flex;
+    flex-direction: row;
+}
+
+.side-bar {
+    min-width: 340px;
+    flex: 1;
+    background-color: #3498db;
+    padding: 20px;
+    box-sizing: border-box;
+    color: #fff;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.buscador {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.buscador input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.buscador button {
+    background-color: rgb(31, 22, 22);
+    color: #d4dfe6;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.galeria-titulo {
+    width: 100%;
+    text-align: center;
+    margin: 0 0 20px;
+}
+
+.galeria {
+    height: calc(100vh - 12%);
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    overflow-x: visible;
+    overflow-y: auto; /* Cambiado de scroll a auto para que aparezca la barra de desplazamiento solo cuando sea necesario */
+}
+
+.galeria::-webkit-scrollbar {
+    width: 10px; /* Ancho de la barra de desplazamiento vertical */
+    height: 10px; /* Altura de la barra de desplazamiento horizontal */
+}
+
+/* Estilos de la barra de desplazamiento vertical */
+.galeria::-webkit-scrollbar-thumb, .galeria::-webkit-scrollbar-thumb:horizontal {
+    background-color: #000000; /* Color de fondo de la barra de desplazamiento vertical */
+    border-radius: 6px; /* Radio de esquinas de la barra de desplazamiento vertical */
+}
+
+/* Estilos del "riel" de la barra de desplazamiento */
+.galeria::-webkit-scrollbar-track {
+    background-color: #f1f1f1; /* Color de fondo del riel de la barra de desplazamiento */
+    border-radius: 6px; /* Radio de esquinas del riel de la barra de desplazamiento */
+}
+
+/* Estilos del "rincón" entre la barra de desplazamiento vertical y horizontal */
+.galeria::-webkit-scrollbar-corner {
+    background-color: #c08f8f; /* Color de fondo del rincón de la barra de desplazamiento */
+}
+
+
+.section-mapa {
+    flex: 5;
+    background-color: #2ecc71;
+    padding: 20px;
+    box-sizing: border-box;
+    color: #fff;
+}
+
+.contenedor-mapa {
+    /* Agrega estilos según sea necesario */
+}
+
+/* Resto de los estilos... */
+
+/** Estilos para el Producto **/
+.producto {
+    display: flex;
+    flex-direction: column;
+    padding: 0.4rem;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.producto:hover {
+    transform: scale(1.05);
+}
+
+.producto img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
+
+.producto-content {
+    padding: 20px;
+}
+
+.producto-titulo {
+    color: black;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.producto-precio {
+    font-size: 1.2rem;
+    color: #3498db;
+    margin-bottom: 10px;
+}
+
+.producto-descripcion {
+    font-size: 1rem;
+    color: #555;
+}
+
+
+
+@media only screen and (max-width: 768px) {
+    #contenedor__principal {
+        flex-direction: column-reverse;
+    }
+
+    .side-bar,
+    .section-mapa {
+        flex: 1;
+    }
+
+    .side-bar {
+        max-height: 450px;
+        overflow-x: hidden;
+    }
+
+    .galeria {
+        display: flex;
+        flex-direction: row;
+        overflow-x: scroll;
+        overflow-y: hidden; /* Cambiado de visible a hidden para ocultar la barra de desplazamiento vertical */
+        -webkit-overflow-scrolling: touch; /* Propiedad necesaria para el desplazamiento suave en Safari */
+        max-width: 90%;
+    }
+
+    .producto-titulo, .producto-precio {
+        font-size: 13px;
+    }
+
+    .producto-descripcion, .galeria-titulo {
+        display: none;
+    }
+
+    .controles {
+        display: flex;
+    }
+
+    .producto-content {
+        padding: 5px;
+    }
+
+    .producto {
+        width: 10rem;
+        flex: 0 0 auto; /* Añadido para evitar que los productos se redimensionen en pantallas más pequeñas */
+        scroll-snap-align: start;
+        margin-right: 1rem; /* Espacio entre productos */
+    }
+}

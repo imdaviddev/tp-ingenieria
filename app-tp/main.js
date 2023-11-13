@@ -31,13 +31,10 @@ document.addEventListener("DOMContentLoaded", function(){
 
     btnAbrirHamburguesa.addEventListener("click", function(){
         menuHamburguesa.classList.add("menu-hamburguesa");
-        console.log(menuHamburguesa.classList)
     })
 
     btnCerrarHamburguesa.addEventListener("click", function(){
         menuHamburguesa.classList.remove("menu-hamburguesa");
-        console.log(menuHamburguesa.classList)
-
     })
 
   });
