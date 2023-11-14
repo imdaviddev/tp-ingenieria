@@ -4,7 +4,6 @@ import { crearProductoCard } from "../js/disenio.js";
 
 const productosListados = []
 
-
 document.addEventListener("DOMContentLoaded", async function () {
     // ------------------------------
     const buscador = document.querySelector(".buscador");
@@ -35,4 +34,3 @@ document.addEventListener("DOMContentLoaded", async function () {
     colocarMarcador(map, [-34.61315, -58.37723], tiposIcons.centromovil);
   });
   
-
