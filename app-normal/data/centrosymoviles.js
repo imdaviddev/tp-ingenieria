@@ -1,8 +1,11 @@
+
+const urlImagen = "assets/icons/";
+
 export const moviles = [
     {
         nombre: "",
         descripcion: "",
-        imagen: "",
+        imagen: urlImagen + "",
         posicion: [20,20],
     }
 ]
@@ -11,7 +14,7 @@ export const centros = [
     {
         nombre: "",
         descripcion: "",
-        imagen: "",
+        imagen: urlImagen + "",
         posicion: [20,20],
     }
 ]

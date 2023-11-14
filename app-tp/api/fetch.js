@@ -1,6 +1,6 @@
-export async function obtenerDatos() {
+export async function obtenerDatos(urlRequest) {
     try {
-      const response = await fetch('https://api.example.com/data');
+      const response = await fetch(urlRequest);
       const data = await response.json();
       return data;
     } catch (error) {
