@@ -155,10 +155,6 @@ body {
         flex-direction: column-reverse;
     }
 
-    .side-bar,
-    .section-mapa {
-        flex: 1;
-    }
 
     .side-bar {
         max-height: 450px;
@@ -172,6 +168,7 @@ body {
         overflow-y: hidden; /* Cambiado de visible a hidden para ocultar la barra de desplazamiento vertical */
         -webkit-overflow-scrolling: touch; /* Propiedad necesaria para el desplazamiento suave en Safari */
         max-width: 90%;
+        height: 100%;
     }
 
     .card-titulo, .card-precio {
@@ -198,7 +195,7 @@ body {
     }
 
     #map {
-        max-height: 450px;
+        height: calc(100vh - 50em); /* o la altura que desees */
     }
 
     body {
