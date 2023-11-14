@@ -21,7 +21,7 @@ export function crearProductoCard(titulo = "Producto",
             imagen = "https://via.placeholder.com/300",
             precioEnDolar = 10
       ){
-
+            
       let precioEnDolares = precioEnDolar;
       let precioEnPesos = precio;
 

@@ -1,7 +1,8 @@
+import { obtenerDolar } from "./api/cotizacion.js";
 import NavBar from "./components/NavBar.js";
 
 /** Espero que el html cargue por completo para ejecutar la funcion ready */
-document.addEventListener("DOMContentLoaded", function(){
+document.addEventListener("DOMContentLoaded", async function(){
     // CARGAR NAVABAR 
     document.querySelector(".header").appendChild(NavBar());
 
