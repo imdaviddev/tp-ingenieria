@@ -4,10 +4,10 @@ body {
     margin: 0;
     min-height: 100vh; /* Ajustado para ocupar al menos el 100% de la altura de la ventana */
     overflow-y: hidden ;
-}
 
-.wrapper{
-    background-image: url("../assets/atracciones/4-Camino-del-Cuadrado-4.jpg");
+    position: relative;
+
+    background-image: url("../assets/fondos/fondo.jpg");
     background-attachment: fixed;
     background-size: cover;
 }
@@ -68,6 +68,7 @@ body {
     gap: 1rem;
     overflow-x: visible;
     overflow-y: auto; /* Cambiado de scroll a auto para que aparezca la barra de desplazamiento solo cuando sea necesario */
+
 }
 
 .galeria::-webkit-scrollbar {
@@ -77,7 +78,7 @@ body {
 
 /* Estilos de la barra de desplazamiento vertical */
 .galeria::-webkit-scrollbar-thumb, .galeria::-webkit-scrollbar-thumb:horizontal {
-    background-color: #000000; /* Color de fondo de la barra de desplazamiento vertical */
+    background-color: rgb(21, 21, 212); /* Color de fondo de la barra de desplazamiento vertical */
     border-radius: 6px; /* Radio de esquinas de la barra de desplazamiento vertical */
 }
 
@@ -208,14 +209,14 @@ body {
     }
     
     .card {
-        width: 10rem;
-        flex: 0 0 auto; /* Añadido para evitar que los productos se redimensionen en pantallas más pequeñas */
+        width: 13rem;
+        flex: 0 0 auto; 
         scroll-snap-align: start;
-        margin-right: 1rem; /* Espacio entre productos */
+        margin-right: 1rem; 
     }
 
     #map {
-        height: calc(100vh - 50em); /* o la altura que desees */
+        height: calc(100vh - 50em); 
     }
 
     body {

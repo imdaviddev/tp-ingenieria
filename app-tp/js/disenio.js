@@ -63,18 +63,37 @@ export function crearAtraccionCard(titulo = "Atraccion",
       descripcion = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce euismod accumsan velit, nec di", 
       imagen = "https://via.placeholder.com/300"
 ){
-let atraccionElement = document.createElement("div");
-productoElement.classList = "card";
-let html = `
-      <img src=${imagen} alt="Atraccion image">
-      <div class="card-content">
-            <div class="card-titulo">${titulo}</div>
-            <div class="card-descripcion">
-                  ${descripcion}
+      let atraccionElement = document.createElement("div");
+      atraccionElement.classList = "card";
+      let html = `
+            <img src=${imagen} alt="Atraccion image">
+            <div class="card-content">
+                  <div class="card-titulo">${titulo}</div>
+                  <div class="card-descripcion">
+                        ${descripcion}
+                  </div>
             </div>
-      </div>
-`
-atraccionElement.innerHTML = html;
+      `
+      atraccionElement.innerHTML = html;
 
-return atraccionElementElement;
+      return atraccionElement;
+}
+
+export function crearCentro_MovilCard(titulo = "Centro",  
+      descripcion = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce euismod accumsan velit, nec di", 
+      imagen = "https://via.placeholder.com/300"
+){
+      let centro_movilElement = document.createElement("div");
+      centro_movilElement.classList = "card";
+      let html = `
+            <img src=${imagen} alt="Atraccion image">
+            <div class="card-content">
+                  <div class="card-titulo">${titulo}</div>
+                  <div class="card-descripcion">
+                        ${descripcion}
+                  </div>
+            </div>
+      `
+      centro_movilElement.innerHTML = html;
+      return centro_movilElement;
 }
