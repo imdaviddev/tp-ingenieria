@@ -1,6 +1,7 @@
 // FUNCIONES PARA MANEJAR EL MAPA
+export const posicionBuenosAires = [-34.61315,  -58.37723]
+
 export function crearMapa(contenedor){
-    let posicionBuenosAires = [-34.61315,  -58.37723]
 
     let mapaElement = document.createElement("div")
     mapaElement.id = 'map'
@@ -26,7 +27,7 @@ export const tiposIcons = {
 }
 var iconoMapa = L.Icon.extend({
     options: {
-        iconSize:     [70, 70], // size of the icon
+        iconSize:     [80, 80], // size of the icon
         //iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
     }
 });
@@ -34,7 +35,11 @@ var iconoMapa = L.Icon.extend({
 function crearIcon(urlImagen){
     return new iconoMapa({iconUrl: urlImagen});
 }
-export function colocarMarcador(map, posicion, tipo = tiposIcons.atraccion){
+export async function colocarMarcador(map, posicion, tipo = tiposIcons.atraccion){
     let marcador = L.marker(posicion, {icon: crearIcon(tipo)}).addTo(map)
-    return marcador;
+    return posicion;
+}
+
+export function hacerZoomEnMapa(map, coordenadas){
+    map.setView(coordenadas, 15)
 }

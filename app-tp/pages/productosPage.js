@@ -1,40 +1,45 @@
-import { colocarMarcador, crearMapa, tiposIcons } from "../api/mapa.js";
-import { obtenerProductos } from "../data/productos.js";
+import { colocarMarcador, crearMapa, hacerZoomEnMapa, tiposIcons } from "../api/mapa.js";
+import { coordenadasProductos, obtenerProductos } from "../data/productos.js";
 import { crearProductoCard } from "../js/disenio.js";
 import { obtenerPrecioEnDolares } from "../api/cotizacion.js";
 
-const productosListados = []
-
 document.addEventListener("DOMContentLoaded", async function () {
-    // ------------------------------
     const buscador = document.querySelector(".buscador");
     const galeria = document.querySelector(".galeria");
-    const btnBuscar = document.querySelector(".buscador").getElementsByTagName("button");
+    const btnBuscar = document.querySelector(".buscador button");
+
+    // Mapa
+    const contenedorMapa = document.querySelector(".contenedor-mapa");
+    const map = crearMapa(contenedorMapa);
+
     try {
         // Obtener los productos
-        let productos = await obtenerProductos();
+        const productos = await obtenerProductos();
 
         // Mostrar los productos
-        productos.forEach(async p => {
-            let precioEnDolares = await obtenerPrecioEnDolares(parseFloat(p.precio));
+        productos.forEach(async (p, index) => {
+            const precioEnDolares = await obtenerPrecioEnDolares(parseFloat(p.precio));
 
-            console.log("Precio en dólares:", precioEnDolares);
+            colocarMarcador(map, coordenadasProductos[index], tiposIcons.tienda);
+            const nuevoProducto = crearProductoCard(p.titulo, p.precio, undefined, p.imagen, precioEnDolares, coordenadasProductos[index], map);
+            galeria.appendChild(nuevoProducto);
 
-            galeria.appendChild(crearProductoCard(p.titulo, p.precio, undefined, p.imagen, precioEnDolares));
+            nuevoProducto.addEventListener("click", function () {
+                hacerZoomEnMapa(map, coordenadasProductos[index]);
+            });
         });
 
         // Resto de la lógica del código...
     } catch (error) {
         console.error('Error al obtener y mostrar los productos:', error);
     }
-    
-    // Logica del buscador
-  
-    // Mapa
-    const contenedorMapa = document.querySelector(".contenedor-mapa");
-    const map = crearMapa(contenedorMapa);
-  
-    // Cargo los diferentes marcadores
-    colocarMarcador(map, [-34.61315, -58.37723], tiposIcons.centromovil);
-  });
+
+    // Agregar un evento de clic a cada tarjeta en la galería
+    galeria.querySelectorAll(".card").forEach((card, index) => {
+        card.addEventListener("click", function () {
+            hacerZoomEnMapa(map, coordenadasProductos[index]);
+        });
+    });
+});
+
   

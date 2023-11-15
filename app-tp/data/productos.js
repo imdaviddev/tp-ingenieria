@@ -1,4 +1,5 @@
 import { obtenerDatos } from "../api/fetch.js";
+import { posicionBuenosAires } from "../api/mapa.js";
 
 const urlAssets = "assets/productos/";
 
@@ -23,6 +24,10 @@ export async function obtenerProductos() {
       let datosProductos = await respuesta.json();
   
       for (let producto of datosProductos) {
+        if(productos.length > 10){
+          break;
+        }
+
         productos.push({
           titulo: producto.title,
           precio: producto.price,
@@ -44,3 +49,23 @@ export async function obtenerProductos() {
       return []; // o manejar el error según tus necesidades
     }
   }
+
+export const coordenadasProductos = [
+  [-34.6, -58.7],
+  [-34.92145, -57.95453],
+  [-34.66667,-58.5],
+  [	-34.58333,-58.41667],
+  [-34.58333,-58.38333],
+  [	-34.6,-58.51667],
+  [-34.61477,-58.47971],
+  [	-34.56667,-58.48333],
+  [-34.63333,-58.51667],
+  [-34.63333,-58.35],
+  [-34.6,-58.48333],
+  [-34.58333,-58.4],
+  [-34.58333,-58.51667],
+  [-34.65,-58.43333],
+  [-34.55,-58.5],
+  [-34.55,-58.46667],
+  [-34.66667,-58.45]
+]
