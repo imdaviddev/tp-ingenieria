@@ -1,47 +1,66 @@
 
 import { obtenerPrecioEnDolares } from '../api/cotizacion.js';
+import { obtenerProductosSimilares } from '../api/mercadolibre.js';
 import { crearProductoCard } from '../js/disenio.js';
 
 document.addEventListener("DOMContentLoaded", async function() {
     // Variables
     const slider = document.querySelector('.galeria');
+
     const titulo = document.querySelector("#nombre");
     const descripcion = document.querySelector("#descripcion");
     const precio = document.querySelector("#precio");
+    const foto = document.querySelector("#foto");
 
-    const confrimarButton = document.querySelector(".confirmar-button")
-    const publicarButton = document.querySelector(".publicar-button")
+
+    const confirmarButton = document.querySelector(".confirmar-button")
+    const publicarButton = document.querySelector(".submit-button")
 
     // Evento formulario
-    confrimarButton.addEventListener("click", function() {
-        publicarButton.classList.toggle("hidden")
-        confrimarButton.classList.toggle("hidden")
-    })
+    confirmarButton.addEventListener("click", publicacionProducto)
     publicarButton.addEventListener("click", mensajePublicacionConfirmacion)
 
-    // Evento publicar productp
+    async function publicacionProducto(){
+        if(validarCampos()){
+            publicarButton.classList.toggle("hidden")
+            confirmarButton.classList.toggle("hidden")
+            mensajeMostrarProductos();
+            mostrarProductosSimilares();
+        }
+    
+    }
 
+    async function mostrarProductosSimilares(){
+        // Evento cargar los productos que son similares
+        let productosSimilares = [];
+        try {
+            let productoCreadoTitulo = titulo.value;
 
-    // Evento cargar los productos que son similares
-    let productosSimilares = [];
-    try {
-        // Obtener los productos
-        let productosSimilares = await obtenerProductosMercadoLibre();
+            // Obtener los productos
+            productosSimilares = await obtenerProductosSimilares(productoCreadoTitulo);
 
-        // Mostrar los productos
-        productosSimilares.forEach(async p => {
-            let precioEnDolares = await obtenerPrecioEnDolares(parseFloat(p.precio));
+            // Mostrar los productos
+            productosSimilares.forEach(async p => {
+                console.log(p)
+                let precioEnDolares = await obtenerPrecioEnDolares(parseFloat(p.precio));
 
-            galeria.appendChild(crearProductoCard(p.titulo, p.precio, undefined, p.imagen, precioEnDolares));
-        });
+                slider.appendChild(crearProductoCard(p.titulo, p.precio, undefined, p.imagen, precioEnDolares));
+            });
 
-        // Resto de la lógica del código...
-    } catch (error) {
-        console.error('Error al obtener y mostrar los productos:', error);
+            // Resto de la lógica del código...
+        } catch (error) {
+            console.error('Error al obtener y mostrar los productos:', error);
+        }
+
     }
 
 
-
+    function mensajeMostrarProductos(){
+        Swal.fire({
+            title: 'Se muestran productos similares',
+            icon: 'info',
+        })
+    }
 
     function mensajePublicacionConfirmacion(){
         Swal.fire({
@@ -67,4 +86,22 @@ document.addEventListener("DOMContentLoaded", async function() {
             }
         });
     }
+
+    function validarCampos() {
+        if (titulo.value === '' || descripcion.value === '' || precio.value === '' || foto.value === '') {
+            mensaje('Todos los campos deben estar llenos');
+            return false; // Detiene el proceso ya que hay campos vacíos
+        }
+    
+        return true; // Indica que todos los campos están llenos
+    }
+    
+    function mensaje(msg) {
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: msg,
+        });
+    }
+    
 })
