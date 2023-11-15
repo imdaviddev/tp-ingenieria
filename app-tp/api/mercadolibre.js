@@ -5,18 +5,39 @@ export { obtenerDatos } from './fetch.js';
 const url = "https://api.mercadolibre.com/sites/MLA/search?q=";
 
 export async function obtenerProductosSimilares(producto, cantidad){
-    let datos = obtenerDatos(url+producto);
-    let productos = [];
+    try {
+        const response = await fetch(url + producto);
+        const data = await response.json().results;
 
-    for(let dato of datos.results){
-        let producto = {
-            nombre: dato.title,
-            imagen: dato.thumbnail,
-            precio: dato.price,
+        let productos = [];
+        if(data){
+            for(let producto in data){
+                if(productos.length <= cantidad){
+                    let nuevo = {
+                        titulo: producto.title,
+                        precio: producto.price,
+                        imagen: producto.thumbnail
+                    }    
+                    productos.push(nuevo);
+                }else {
+                    break;
+                }
+            }
+            return productos;
+        }else {
+            console.log("Hubo un error en la API de Mercado Libre");
+            return null;
         }
-
-        productos.push(producto);
+    }catch (error) {
+        console.error("Error al obtener datos de la API:", error);
+        return null;
     }
 
-    return productos;
+
+
+
+
+
+
+
 }

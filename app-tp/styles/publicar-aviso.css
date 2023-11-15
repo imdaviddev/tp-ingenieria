@@ -117,7 +117,7 @@ select {
     border-radius: 5px;
 }
 
-button.submit-button {
+button.submit-button, button.confirmar-button {
     display: block;
     width: 100%;
     padding: 10px;
@@ -128,23 +128,10 @@ button.submit-button {
     cursor: pointer;
 }
 
-button.submit-button:hover {
+button.submit-button:hover, button.confirmar-button {
     background-color: #0056b3;
 }
 
-/* Estilos para dispositivos móviles */
-@media (max-width: 768px) {
-    form {
-        max-width: 100%;
-    }
-}
-
-/* Estilos para tabletas y pantallas más grandes */
-@media (min-width: 769px) {
-    form {
-        max-width: 600px;
-    }
-}
 
 /* Estilos adicionales para Publicar Aviso */
 #nombre, #descripcion, #precio {
@@ -167,5 +154,150 @@ button.submit-button:hover {
     max-width: 100%;
     max-height: 300px;
     margin: 10px 0;
+
+    width: 100%;
+    object-fit: scale-down;
 }
 
+.hidden {
+    display: none !important;
+}
+
+
+/** Estilos para el Producto **/
+.card {
+    display: flex;
+    flex-direction: column;
+    padding: 0.4rem;
+    background-color: rgba(0, 0, 0, 0.659);
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.card img {
+    background-color: white;
+    padding: 10px;
+    min-width: 230px;
+    max-height: 150px;
+    object-fit: scale-down; /* Fue cambiado por object-fit */
+}
+
+.card-content {
+    padding: 20px;
+}
+
+.card-titulo {
+    color: rgb(255, 255, 255);
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.card-precio {
+    font-size: 1.2rem;
+    color: #a59d9dca;
+    margin-bottom: 10px;
+}
+
+.card-titulo, .card-precio{
+    font-size: 1.4rem;
+}
+
+.card .cambiar {
+    width: 100%;
+    font-size: 0.8rem;
+    color: black;
+    padding: 5px;
+    margin: 2px;
+    border: none;
+    background-color: white;
+    font-weight: bold;
+}
+
+.card .cambiar:hover {
+    background-color: #ffffff;
+}
+
+.card-descripcion {
+    display: none;    
+}
+
+
+/* SLIDER **/
+.side-bar {
+    min-width: 340px;
+    flex: 1;
+    padding: 20px;
+    box-sizing: border-box;
+    color: #fff;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    max-height: 450px;
+    overflow-x: hidden;
+
+    z-index: 1;
+
+    position: relative;
+}
+.galeria-titulo {
+    width: 100%;
+    text-align: center;
+    margin: 0 0 20px;
+}
+
+.galeria {
+    padding: 0.5rem;
+    gap: 1rem;
+
+    display: flex;
+    flex-direction: row;
+    overflow-x: visible;
+    overflow-y: hidden; /* Cambiado de visible a hidden para ocultar la barra de desplazamiento vertical */
+    -webkit-overflow-scrolling: touch; /* Propiedad necesaria para el desplazamiento suave en Safari */
+    max-width: 90%;
+    height: 100%;
+}
+
+.galeria::-webkit-scrollbar {
+    width: 10px; /* Ancho de la barra de desplazamiento vertical */
+    height: 10px; /* Altura de la barra de desplazamiento horizontal */
+}
+
+/* Estilos de la barra de desplazamiento vertical */
+.galeria::-webkit-scrollbar-thumb, .galeria::-webkit-scrollbar-thumb:horizontal {
+    background-color: #000000; /* Color de fondo de la barra de desplazamiento vertical */
+    border-radius: 6px; /* Radio de esquinas de la barra de desplazamiento vertical */
+}
+
+/* Estilos del "riel" de la barra de desplazamiento */
+.galeria::-webkit-scrollbar-track {
+    background-color: #f1f1f1; /* Color de fondo del riel de la barra de desplazamiento */
+    border-radius: 6px; /* Radio de esquinas del riel de la barra de desplazamiento */
+}
+
+/* Estilos del "rincón" entre la barra de desplazamiento vertical y horizontal */
+.galeria::-webkit-scrollbar-corner {
+    background-color: #c08f8f; /* Color de fondo del rincón de la barra de desplazamiento */
+}
+
+/* Estilos para dispositivos móviles */
+@media (max-width: 768px) {
+    form {
+        max-width: 100%;
+    }
+}
+
+/* Estilos para tabletas y pantallas más grandes */
+@media (min-width: 769px) {
+    form {
+        max-width: 600px;
+    }
+}

@@ -64,7 +64,7 @@ document.addEventListener("DOMContentLoaded", async function(){
 
     // ------- CERRAR SESION ---------------------------
     const cerrarSesionBtn = document.getElementById("cerrar-sesion-btn");
-    cerrarSesionBtn.addEventListener("click", cerrarSesion);
+    cerrarSesionBtn.addEventListener("click", mensajeCierreSesion);
     // -------------------------------------------------
 
     // -------------- login lOGICA --------------------------------
@@ -86,7 +86,6 @@ document.addEventListener("DOMContentLoaded", async function(){
       // ------ AUTENTICACION ---------------------------
       if(usuarioEsCorrecto(usernameInput)){
         if(contraseniaEsCorrecta(usernameInput, passwordInput)){
-            mensajeCofirmacion();
             iniciarSesion();
         }
       }else{
@@ -126,20 +125,18 @@ function iniciarSesion(){
 
     document.cookie = `sesion=activa; expires=${fechaVencimiento.toUTCString()}; path=/`;
 
-    console.log(window.location.href);
-    recargarPagina();
+    mensajeExitoInicioSesion();
 }
 // CERRAR SESION
 function cerrarSesion(){
   document.cookie = "sesion=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
 
-  let path = /app-normal/
+  let path = /app-tp/
   if(window.location.pathname == path+"publicar-aviso.html"){
       window.location.href = "index.html";
-  }else{
-      recargarPagina();     
+  }else {
+      recargarPagina();
   }
-
 }
 // REVISO SI EL USUARIO INGRESADO ES CORRECTO
 function usuarioEsCorrecto(usuario){
@@ -151,12 +148,35 @@ function contraseniaEsCorrecta(usuario, contrasenia){
     // LO MISMO QUE EN USUARIO ES CORRECTO
     return usuario == "comerciante" && contrasenia == "1234";
 }
-function mensajeCofirmacion(){
-    alert("LOGUEADO EXITOSAMENTE");
+
+function mensajeExitoInicioSesion() {
+  Swal.fire({
+      title: 'Autenticación Exitosa',
+      icon: 'success',
+  }).then((result) => {
+      if (result.isConfirmed) {
+        recargarPagina();
+      }
+  });
 }
+
+function mensajeCierreSesion(){
+  Swal.fire({
+    title: '¿Seguro que quiere cerrar sesión?',
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonText: 'Cerrar Sesión',
+    cancelButtonText: 'Cancelar',
+  }).then((result) => {
+      if (result.isConfirmed) {
+         cerrarSesion();
+      }
+  });
+}
+
 // RECARGO PAGINA
 function recargarPagina() {
-    location.href = location.href;
+    location.reload();
 }
 /** ------------------------------------------------------------ */
 
